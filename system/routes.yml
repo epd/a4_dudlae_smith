@@ -8,19 +8,34 @@
   # in order before page is rendered
   before:
     pdo
-    install/verify_install
+    install/verify_install  # Check to make sure the schema has been installed
+    users/verify_login      # Check to make sure user is logged in
 
   # Fill in regions defined in the layout
   regions:
     body: home
 
+# Site installation
 /install:
+
+  before:
+    pdo
+    install/schema    # Defines our schema
+    install/install   # Procedes with installation
+
+# User login
+/login:
   layout
 
   before:
     pdo
-    install/schema
-    install/install
+    users/login       # Check if user is trying to login
 
-  regions:
-    body: install
+  regions: 
+    body: login       # Present user with login form
+
+# User logout
+/logout:
+
+  before:
+    users/logout

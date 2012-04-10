@@ -29,12 +29,6 @@ $path = parse_path();
 $state = $routes[$path];
 $cache = array();
 
-// Grab our layout template and cache it
-if (!isset($state[0])) {
-  die("Error: You must provide a default layout for this route.");
-}
-$layout = template_cache($state[0]);
-
 // Include our "before" logic (if exists)
 if (isset($state['before']) && !empty($state['before'])) {
   foreach ($state['before'] as $file) {
@@ -44,6 +38,12 @@ if (isset($state['before']) && !empty($state['before'])) {
     require_once PRELOAD_DIR . $file . '.php';
   }
 }
+
+// Grab our layout template and cache it
+if (!isset($state[0])) {
+  die("Error: You must provide a default layout for this route.");
+}
+$layout = template_cache($state[0]);
 
 // Parse each region (if exists) and throw them in the cache
 if (isset($state['regions']) && !empty($state['regions'])) {
