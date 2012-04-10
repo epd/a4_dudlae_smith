@@ -33,6 +33,16 @@ if (!isset($state[0])) {
 }
 $layout = template_cache($state[0]);
 
+// Include our "before" logic (if exists)
+if (isset($state['before']) && !empty($state['before'])) {
+  foreach ($state['before'] as $file) {
+    if (!file_exists(PRELOAD_DIR . $file . '.php')) {
+      die("Error: Could not include file in before filter.");
+    }
+    require_once PRELOAD_DIR . $file . '.php';
+  }
+}
+
 // Parse each region (if exists) and throw them in the cache
 if (isset($state['regions']) && !empty($state['regions'])) {
   array_map("template_cache", $state['regions']);
@@ -41,6 +51,16 @@ if (isset($state['regions']) && !empty($state['regions'])) {
 // Go through our cache and construct our page
 foreach ($state['regions'] as $region => $file) {
   parse_region($region, $file);
+}
+
+// Include our "after" logic (if exists)
+if (isset($state['after']) && !empty($state['after'])) {
+  foreach ($state['after'] as $file) {
+    if (!file_exists(POSTLOAD_DIR . $file . '.php')) {
+      die("Error: Could not include file in after filter.");
+    }
+    require_once POSTLOAD_DIR . $file . '.php';
+  }
 }
 
 // Render our page
