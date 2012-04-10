@@ -8,7 +8,14 @@
   # in order before page is rendered
   before:
     pdo
+    verify_install
 
   # Fill in regions defined in the layout
   regions:
     body: home
+
+/install:
+  layout
+
+  regions:
+    body: install

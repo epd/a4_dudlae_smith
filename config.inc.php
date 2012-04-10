@@ -7,7 +7,7 @@
  */
 
 $config = array(
-  'db' => NULL,
-  'user' => NULL,
-  'pass' => NULL,
+  'db' => 'itws',
+  'user' => 'itws',
+  'pass' => 'ITWS',
 );
