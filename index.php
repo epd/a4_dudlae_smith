@@ -9,10 +9,15 @@
  */
 
 // Holds database configuration and other options
-require_once "system/config.inc.php";
+require_once __DIR__ . "/system/config.inc.php";
+
+// If exists, load in config file from root (this will override settings from system)
+if (file_exists(__DIR__ . "/config.inc.php")) {
+  require_once __DIR__ . "/config.inc.php";
+}
 
 // Includes helper functions for loading in pages
-require_once "system/lib/utilities.php";
+require_once __DIR__ . "/system/lib/utilities.php";
 
 // Parse our routes and grab the current path
 $routes = parse_routes();

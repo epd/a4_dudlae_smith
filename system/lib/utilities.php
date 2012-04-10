@@ -7,7 +7,7 @@
  */
 
 // Include a YAML parser <http://code.google.com/p/spyc/> for our routes
-require_once "system/lib/spyc.php";
+require_once __DIR__ . "/spyc.php";
 
 /**
  * Implements parse_routes().
@@ -16,10 +16,10 @@ require_once "system/lib/spyc.php";
  */
 function parse_routes() {
   // Use the Spyc YAML parser to read in our routes file
-  $routes = spyc_load_file('system/routes.yml');
+  $routes = spyc_load_file(__DIR__ . '/../routes.yml');
 
   // If for some reason the routes file is missing, throw an error
-  if (isset($routes[0]) && $routes[0] == 'system/routes.yml') {
+  if (isset($routes[0]) && $routes[0] == __DIR__ . '/../routes.yml') {
     die("Error: Invalid routes file or file not found.");
   }
 
