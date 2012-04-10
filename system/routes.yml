@@ -1,0 +1,3 @@
+/:
+  layout.tpl.php
+  body: home.tpl.php
