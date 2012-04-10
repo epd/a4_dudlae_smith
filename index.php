@@ -8,6 +8,8 @@
  * Mykola Smith <smithm20@rpi.edu>
  */
 
+session_start();
+
 // Holds database configuration and other options
 require_once __DIR__ . "/system/config.inc.php";
 

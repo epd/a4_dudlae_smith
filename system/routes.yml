@@ -17,5 +17,10 @@
 /install:
   layout
 
+  before:
+    pdo
+    install/schema
+    install/install
+
   regions:
     body: install
