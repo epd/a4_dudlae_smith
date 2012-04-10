@@ -1,3 +1,14 @@
+# Our main route
 /:
-  layout.tpl.php
-  body: home.tpl.php
+  # Load up the default layout file, this
+  # should ALWAYS be the first thing listed
+  layout
+
+  # Before filter, this executes these files
+  # in order before page is rendered
+  before:
+    pdo
+
+  # Fill in regions defined in the layout
+  regions:
+    body: home
