@@ -24,10 +24,11 @@ require_once __DIR__ . "/system/lib/utilities.php";
 // Parse our routes and grab the current path
 $routes = parse_routes();
 $path = parse_path();
+$query = $path[1];
 
 // Get the current configuration for the route and initialize cache
-$state = $routes[$path];
-$cache = array();
+$state = $routes[$path[0]];
+$cache = $vars = array();
 
 // Include our "before" logic (if exists)
 if (isset($state['before']) && !empty($state['before'])) {

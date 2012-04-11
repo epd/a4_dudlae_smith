@@ -9,6 +9,7 @@
   before:
     pdo
     install/verify_install  # Check to make sure the schema has been installed
+    links                   # Get list of links
 
   # Fill in regions defined in the layout
   regions:
@@ -38,3 +39,11 @@
 
   before:
     users/logout
+
+# Delete links
+/delete:
+
+  before:
+    users/verify_login
+    pdo
+    delete

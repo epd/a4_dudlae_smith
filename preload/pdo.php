@@ -22,7 +22,10 @@ try {
 
         // Authenticate with these credentials
         sprintf('%s', $config['user']),
-        sprintf('%s', $config['pass'])
+        sprintf('%s', $config['pass']),
+
+        // Make a persistent connection
+        array(PDO::ATTR_PERSISTENT => true)
     );
 }
 

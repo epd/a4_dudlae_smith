@@ -55,7 +55,17 @@ function parse_path() {
     }
   }
 
-  return $path;
+  // Get the query variables (everything after the path)
+  $query = explode('/', substr($uri['path'], strlen($path)));
+  // Remove empty indicies from the beginning
+  foreach ($query AS $qk => $qv) {
+    if (!empty($qv)) {
+      break;
+    }
+    unset($query[$qk]);
+  }
+
+  return array($path, $query);
 }
 
 /**
@@ -63,6 +73,7 @@ function parse_path() {
  */
 function template_cache($file = NULL) {
   global $cache;
+  global $vars;
 
   // If no arguments are passed, just return the whole cache
   if (!$file) {
