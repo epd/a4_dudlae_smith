@@ -23,13 +23,13 @@ if (!empty($_POST)) {
     $salt = $salt->fetch(PDO::FETCH_ASSOC);
 
     // If this user exists and we can get the salt, go ahead and verify their password
-    if (isset($salt['salt']) && !empty($salt['salt'])) {
+    if (!$salt) {
       $verify = $pdo->prepare("SELECT u.username FROM users u WHERE u.username = (?) AND u.password = (?)");
       $verify->execute(array($_POST['username'], sha1($salt['salt'] . $_POST['password'])));
       $verify = $verify->fetch(PDO::FETCH_ASSOC);
 
       // If their password is correct, redirect to the index
-      if (isset($verify['username']) && !empty($verify['username'])) {
+      if (!$verify) {
         $_SESSION['username'] = $verify['username'];
         header("Location: /");
         exit();

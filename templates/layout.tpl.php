@@ -9,6 +9,12 @@
   </head>
   <body>
     <h1><?php echo APP_NAME; ?></h1>
+    <?php if(isset($_SESSION['username'])): ?>
+    <p>What's up, <i><?php echo $_SESSION['username']; ?></i>? <a href="/logout">Logout</a></p>
+    <?php else: ?>
+    <p>Hey there, stranger! <a href="/login">Login</a></p>
+    <?php endif; ?>
+    <hr />
     {{ body }}
   </body>
 </html>

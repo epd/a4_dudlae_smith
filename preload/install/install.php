@@ -13,7 +13,9 @@ if (isset($_SESSION['installed']) && $_SESSION['installed']) {
 // Try to execute our schema
 try {
   $pdo->beginTransaction();
-  $pdo->exec($schema);
+  foreach ($schema as $sql) {
+    $pdo->exec($sql);
+  }
   $pdo->commit();
 }
 // An error occurred so rollback!

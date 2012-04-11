@@ -9,7 +9,6 @@
   before:
     pdo
     install/verify_install  # Check to make sure the schema has been installed
-    users/verify_login      # Check to make sure user is logged in
 
   # Fill in regions defined in the layout
   regions:
