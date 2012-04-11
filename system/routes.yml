@@ -17,6 +17,7 @@
 
 # Site installation
 /install:
+  install
 
   before:
     pdo
@@ -45,5 +46,16 @@
 
   before:
     users/verify_login
+    users/verify_can_delete
     pdo
     delete
+
+# Create links
+/create:
+  layout
+
+  before:
+    users/verify_login
+    users/verify_can_create
+    pdo
+    create

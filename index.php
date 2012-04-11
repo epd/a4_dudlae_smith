@@ -7,7 +7,6 @@
  * Evan Dudla <dudlae@rpi.edu>
  * Mykola Smith <smithm20@rpi.edu>
  */
-
 session_start();
 
 // Holds database configuration and other options
@@ -49,11 +48,11 @@ $layout = template_cache($state[0]);
 // Parse each region (if exists) and throw them in the cache
 if (isset($state['regions']) && !empty($state['regions'])) {
   array_map("template_cache", $state['regions']);
-}
 
-// Go through our cache and construct our page
-foreach ($state['regions'] as $region => $file) {
-  parse_region($region, $file);
+  // Go through our cache and construct our page
+  foreach ($state['regions'] as $region => $file) {
+    parse_region($region, $file);
+  }
 }
 
 // Include our "after" logic (if exists)
