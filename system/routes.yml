@@ -59,3 +59,6 @@
     users/verify_can_create
     pdo
     create
+
+  regions:
+    body: create
