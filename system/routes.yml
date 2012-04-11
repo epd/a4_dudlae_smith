@@ -46,8 +46,8 @@
 
   before:
     users/verify_login
-    users/verify_can_delete
     pdo
+    users/verify_can_delete
     delete
 
 # Create links
