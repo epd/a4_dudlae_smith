@@ -3,7 +3,7 @@
  * @file
  * Log a user out.
  */
-unset($_SESSION['user']);
+unset($_SESSION);
 session_destroy();
 header("Location: /login");
 exit();
