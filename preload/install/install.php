@@ -11,7 +11,10 @@ if (isset($_SESSION['installed']) && $_SESSION['installed']) {
 }
 
 // Execute our schema
-$pdo->exec($schema);
+$sql = explode("\n\n", $schema);
+foreach ($sql as $statement) {
+  $pdo->exec($statement);
+}
 
 // If everything went well, go to index
 $_SESSION['installed'] = TRUE;

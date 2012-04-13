@@ -40,7 +40,7 @@ function parse_path() {
   global $routes;
 
   // Parse our path and get the appropriate route
-  $uri = parse_url($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+  $uri = parse_url('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
   $path = $uri['path'];
 
   // Keep trying routes to get the most specific route that is valid

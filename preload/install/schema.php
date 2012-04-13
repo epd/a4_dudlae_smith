@@ -5,7 +5,6 @@
  */
 
 $schema = <<<SCHEMA
-
 DROP TABLE IF EXISTS links;
 
 DROP TABLE IF EXISTS permissions;
