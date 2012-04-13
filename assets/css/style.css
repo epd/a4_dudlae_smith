@@ -1,4 +1,19 @@
-/**
- * @file
- * Primary stylesheet.
- */
+body, html {
+	font-family:Arial;
+}
+
+#container {
+	margin:0 auto 0 auto;
+	width:85%;
+	border:2px dashed #B0B0B0;
+}
+
+header {
+	text-align:center;
+	padding:10px;
+	background-color:#B0B0B0;
+}
+
+#content {
+	padding:15px;
+}
