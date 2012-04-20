@@ -5,6 +5,7 @@
     <title><?php echo APP_NAME; ?></title>
  
     <link rel="stylesheet" href="https://raw.github.com/necolas/normalize.css/master/normalize.css">
+	<link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
